@@ -19,4 +19,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaEscolar.Data\SistemaEscolar.Data.csproj" />
+  </ItemGroup>
+
 </Project>
