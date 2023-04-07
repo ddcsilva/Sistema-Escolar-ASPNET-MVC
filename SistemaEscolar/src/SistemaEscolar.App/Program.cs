@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SistemaEscolar.App.Data;
+using SistemaEscolar.Business.Interfaces;
 using SistemaEscolar.Data.Context;
+using SistemaEscolar.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // Adicionando o MVC
 builder.Services.AddControllersWithViews();
+
+// Injeção de Dependência
+builder.Services.AddScoped<SistemaEscolarContext>();
+builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
 // Gerando a APP
 var app = builder.Build();
